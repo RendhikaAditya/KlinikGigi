@@ -14,10 +14,10 @@
     <item name="imageView2" type="id" />
     <item name="textView5" type="id" />
     <item name="linearLayouts2" type="id" />
-    <item name="txtRosa" type="id" />
-    <item name="bgRosa" type="id" />
-    <item name="txtRiska" type="id" />
-    <item name="bgRiska" type="id" />
+    <item name="txtDokter" type="id" />
+    <item name="bgDokter" type="id" />
+    <item name="txtPasien" type="id" />
+    <item name="bgPasien" type="id" />
     <item name="textView3" type="id" />
     <item name="namaUser" type="id" />
     <item name="textView" type="id" />
