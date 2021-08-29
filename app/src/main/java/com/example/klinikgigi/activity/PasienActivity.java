@@ -42,9 +42,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import dmax.dialog.SpotsDialog;
@@ -72,7 +76,6 @@ public class PasienActivity extends AppCompatActivity implements OnUpdateJam, Na
     LinearLayout btnHistori;
 
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,8 +114,9 @@ public class PasienActivity extends AppCompatActivity implements OnUpdateJam, Na
 
 
 
-
-        String now= LocalDate.now().toString();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM -dd");
+        Date date = new Date();
+        String now= formatter.format(date);
         year = c.get(Calendar.YEAR);
         month = c.get(Calendar.MONTH);
         day = c.get(Calendar.DAY_OF_MONTH);
@@ -157,6 +161,7 @@ public class PasienActivity extends AppCompatActivity implements OnUpdateJam, Na
                 showDialog(DATE_DIALOG_ID);
             }
         });
+
     }
 
     private void simpanJanji() {

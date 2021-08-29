@@ -3,10 +3,18 @@ package com.example.klinikgigi.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
@@ -28,6 +36,8 @@ public class KonfirmasiActivity extends AppCompatActivity {
     PrefManager prefManager;
     AlertDialog dialog;
     String idJanji;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,14 +65,14 @@ public class KonfirmasiActivity extends AppCompatActivity {
         if (prefManager.getLvl().equalsIgnoreCase("1")){
             binding.btn.setVisibility(View.GONE);
         }else {
-            binding.btn.setVisibility(View.VISIBLE);
+            if (!intent.getStringExtra("STATUS").equalsIgnoreCase("MENUNGGU KONFIRMASI")){
+                binding.btn.setVisibility(View.GONE);
+            }else {
+                binding.btn.setVisibility(View.VISIBLE);
+            }
         }
 
-        if (!intent.getStringExtra("STATUS").equalsIgnoreCase("MENUNGGU KONFIRMASI")){
-            binding.btn.setVisibility(View.GONE);
-        }else {
-            binding.btn.setVisibility(View.VISIBLE);
-        }
+
         
         binding.btnTerima.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +85,29 @@ public class KonfirmasiActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setTolak();
+            }
+        });
+
+        binding.imgPlace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog builder = new Dialog(KonfirmasiActivity.this);
+                builder.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                builder.getWindow().setBackgroundDrawable(
+                        new ColorDrawable(android.graphics.Color.TRANSPARENT));
+                builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialogInterface) {
+                        //nothing;
+                    }
+                });
+
+                ImageView imageView = new ImageView(KonfirmasiActivity.this);
+                Picasso.get().load(ApiServer.img+intent.getStringExtra("FOTO")).into(imageView);
+                builder.addContentView(imageView, new RelativeLayout.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT));
+                builder.show();
             }
         });
 
