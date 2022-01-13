@@ -112,6 +112,14 @@ public class PasienActivity extends AppCompatActivity implements OnUpdateJam, Na
             }
         });
 
+        binding.btnChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PasienActivity.this, ChatListActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM -dd");

@@ -12,13 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KlinikGigi"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.KonfirmasiActivity"></activity>
+        <activity android:name=".activity.LoginActivity"></activity>
+        <activity android:name=".activity.ChatListActivity" />
+        <activity android:name=".activity.ChatRoomActivity" />
+        <activity android:name=".activity.KonfirmasiActivity" />
         <activity android:name=".activity.DaftarActivity" />
         <activity android:name=".activity.BayarActivity" />
         <activity android:name=".activity.RiwayatActivity" />
         <activity android:name=".activity.DokterActivity" />
         <activity android:name=".activity.PasienActivity" />
-        <activity android:name=".activity.LoginActivity">
+        <activity android:name=".activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -27,14 +27,26 @@
                 android:layout_marginRight="16dp"
                 android:scaleType="fitStart"
                 app:layout_constraintBottom_toTopOf="@id/textView"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_menu"
                 app:tint="@color/white"
                 tools:ignore="MissingConstraints,VectorDrawableCompat"
                 tools:layout_marginLeft="16dp" />
-
+            <ImageView
+                android:id="@+id/btnChat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/textView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnMenu"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_chat"
+                android:scaleType="fitEnd"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="250dp"
+                tools:ignore="VectorDrawableCompat"
+                app:tint="@color/white" />
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="0dp"

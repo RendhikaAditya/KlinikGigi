@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
 
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -70,6 +72,8 @@ public class LoginActivity extends AppCompatActivity {
         
         
     }
+
+
 
     private void getTipeLogin() {
         binding.bgDokter.setOnClickListener(new View.OnClickListener() {

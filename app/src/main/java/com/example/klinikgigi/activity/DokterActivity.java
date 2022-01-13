@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,6 +34,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import dmax.dialog.SpotsDialog;
 
@@ -44,6 +48,8 @@ public class DokterActivity extends AppCompatActivity implements NavigationView.
 
     TextView logout, nama, nohp;
     LinearLayout btnHistori;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +68,14 @@ public class DokterActivity extends AppCompatActivity implements NavigationView.
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DokterActivity.this, RiwayatActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        binding.btnChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DokterActivity.this, ChatListActivity.class);
                 startActivity(intent);
             }
         });
@@ -94,8 +108,12 @@ public class DokterActivity extends AppCompatActivity implements NavigationView.
         binding.rvJadwalBaru.setHasFixedSize(true);
         binding.rvSetujuiJadwal.setHasFixedSize(true);
 
+
+
         getKonsultasi();
     }
+
+
 
     private void getKonsultasi() {
         alertDialog.show();
